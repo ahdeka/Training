@@ -1,30 +1,18 @@
 package hijava.practice;
 
 public class Man {
-    public static final int COFFEE_PRICE = 3000;
-    public final static int DONUT_PRICE = 2500;
+    private static final int COFFEE_PRICE = 3000;
+    private static final int DONUT_PRICE = 2500;
     private String name;
-    private int amount;
+    private int money;
 
     public Man() {
-        this.amount = 10000;
+        this.money = 10000;
     }
 
     public Man(String name) {
         this();
-        this.name = name;
-    }
-
-    public void buyCoffee(int count) {
-        this.subAmount(COFFEE_PRICE, count);
-    }
-
-    public void buyDonut(int count) {
-        this.subAmount(DONUT_PRICE, count);
-    }
-
-    private void subAmount(int price, int count) {
-        this.amount -= price * count;
+        this.setName(name);
     }
 
     public String getName() {
@@ -35,30 +23,46 @@ public class Man {
         this.name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getMoney() {
+        return money;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public void buyCoffee(int count) {
+//        this.money -= COFFEE_PRICE * count;
+        this.subMoney(COFFEE_PRICE, count);
+    }
+
+    public void buyDonut(int count) {
+        this.subMoney(DONUT_PRICE, count);
+    }
+
+    private void subMoney(int price, int count) {
+        this.money -= price * count;
     }
 
     @Override
     public String toString() {
-        return this.name + "'s change is " + this.amount;
+        return "Man{" +
+                "name='" + getName() + '\'' +
+                ", money=" + getMoney() +
+                '}';
     }
 
     public static void main(String[] args) {
         Man hong = new Man("Hong");
-        Man john = new Man("John");
+        Man dam = new Man("Dam");
 
         hong.buyCoffee(1);
         hong.buyDonut(2);
 
-        john.buyCoffee(2);
-        john.buyDonut(1);
+        dam.buyCoffee(2);
+        dam.buyDonut(1);
 
         System.out.println(hong);
-        System.out.println(john);
+        System.out.println(dam);
     }
 }

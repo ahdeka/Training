@@ -1,6 +1,6 @@
 package hijava.practice;
 
-public class Problem {
+public class Problem{
     public static void main(String[] args) {
         Score s1 = new Score();
         s1.setSubject("English");

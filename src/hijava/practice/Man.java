@@ -15,6 +15,7 @@ public class Man {
         this.setName(name);
     }
 
+
     public String getName() {
         return name;
     }
@@ -42,6 +43,11 @@ public class Man {
 
     private void subMoney(int price, int count) {
         this.money -= price * count;
+    }
+
+    public void sayHello() {
+        System.out.println("안녕하세요");
+        System.out.println("제 이름은 " + this.getName() + "입니다.");
     }
 
     @Override

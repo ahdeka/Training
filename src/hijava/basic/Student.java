@@ -2,7 +2,7 @@ package hijava.basic;
 
 import java.util.Objects;
 
-public class Student implements Cloneable {
+public class Student implements Cloneable, Comparable<Student> {
     private int id;
     private String name;
 
@@ -49,6 +49,13 @@ public class Student implements Cloneable {
         Student clobj = (Student) super.clone();
         clobj.name = clobj.name + "복제본!";
         return super.clone();
+    }
+
+    @Override
+    public int compareTo(Student o){
+        System.out.println("comp=" + this.id + "-" + o.id);
+        return this.id - o.id; // 앞에있는 애와 뒤에있는 애를 비교, ex) 50 - 100이오면 음수가 되니까 왼쪽
+//        return (this.id - o.id) *-1;  // 이렇게하면 내림차순으로 비교
     }
 
     @Override
